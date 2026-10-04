@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amir Hemmati · CV & Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Violet theme palette */
+            --primary: #d83aed;           /* rich violet */
+            --primary-light: #a78bfa;      /* soft lavender */
+            --primary-dark: #9321b6;       /* deep violet */
+            --primary-soft: #ede9fe;       /* very light violet */
+            --accent: #c084fc;             /* light purple accent */
+            --bg-soft: #f5f3ff;            /* near-white violet */
+            --card-bg: #ffffff;
+            --text-main: #3d1a47;          /* dark violet-ink */
+            --text-soft: #5b4a7a;          /* muted violet-gray */
+            --border-light: #ddd6fe;       /* light violet border */
+            --shadow-sm: 0 4px 12px rgba(91, 33, 182, 0.06);
+            --shadow-md: 0 12px 28px -8px rgba(91, 33, 182, 0.18);
+            --shadow-lg: 0 30px 60px -15px rgba(91, 33, 182, 0.25);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background: linear-gradient(145deg, #ede9fe 0%, #f5f3ff 40%, #e9e4ff 100%);
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem 1rem;
+            line-height: 1.5;
+            color: var(--text-main);
+            perspective: 1200px;
+        }
+
+        /* Animated violet background blobs */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -10%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.14) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatBlob 12s ease-in-out infinite;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -10%;
+            left: -5%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(91, 33, 182, 0.10) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: -1;
+            animation: floatBlob 15s ease-in-out infinite reverse;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .portfolio {
+            max-width: 1100px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 32px;
+            box-shadow: var(--shadow-lg);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: var(--transition);
+            animation: cardEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+        }
+
+        @keyframes cardEntry {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.97);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        .portfolio:hover {
+            box-shadow: 0 40px 80px -20px rgba(91, 33, 182, 0.3);
+        }
+
+        /* Header / hero */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2.5rem 2rem 1.8rem 2rem;
+            background: linear-gradient(145deg, #ffffff 0%, #f9f5ff 100%);
+            border-bottom: 1px solid rgba(221, 214, 254, 0.8);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(124, 58, 237, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .avatar {
+            width: 128px;
+            height: 128px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid white;
+            box-shadow: 0 10px 30px -8px rgba(91, 33, 182, 0.25);
+            margin-bottom: 1rem;
+            background: #ddd6fe;
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+            animation: avatarPulse 4s ease-in-out infinite;
+        }
+
+        @keyframes avatarPulse {
+            0%, 100% { box-shadow: 0 10px 30px -8px rgba(91, 33, 182, 0.25), 0 0 0 0 rgba(124, 58, 237, 0.35); }
+            50% { box-shadow: 0 10px 30px -8px rgba(91, 33, 182, 0.25), 0 0 0 12px rgba(124, 58, 237, 0); }
+        }
+
+        .avatar:hover {
+            transform: scale(1.08) rotate(-2deg);
+            box-shadow: 0 16px 40px -8px rgba(91, 33, 182, 0.4);
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: var(--primary-dark);
+            margin-bottom: 0.25rem;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            transition: var(--transition);
+        }
+
+        .hero h1:hover {
+            letter-spacing: 0.02em;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: var(--text-soft);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 0.5rem 0 0.25rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero .subhead span {
+            transition: var(--transition);
+            cursor: default;
+            padding: 0.2rem 0.5rem;
+            border-radius: 8px;
+        }
+
+        .hero .subhead span:hover {
+            background: rgba(124, 58, 237, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .hero .subhead span i {
+            margin-right: 6px;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .hero .subhead span:hover i {
+            transform: scale(1.2) rotate(-5deg);
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .badge {
+            background: #ede9fe;
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 0.35rem 1rem;
+            border-radius: 30px;
+            letter-spacing: 0.02em;
+            border: 1px solid #c4b5fd;
+            transition: var(--transition);
+            cursor: default;
+            animation: badgeFloat 3s ease-in-out infinite;
+        }
+
+        .badge:nth-child(1) { animation-delay: 0s; }
+        .badge:nth-child(2) { animation-delay: 0.3s; }
+        .badge:nth-child(3) { animation-delay: 0.6s; }
+        .badge:nth-child(4) { animation-delay: 0.9s; }
+
+        @keyframes badgeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-4px); }
+        }
+
+        .badge:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: 0 8px 20px -6px rgba(124, 58, 237, 0.5);
+            border-color: var(--primary);
+            animation-play-state: paused;
+        }
+
+        /* Main grid */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.8fr;
+            gap: 2rem;
+            padding: 2.2rem 2rem 2.2rem 2rem;
+        }
+
+        .left-col,
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
+        }
+
+        /* Sections */
+        .section {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 1.5rem 1.5rem 1.3rem 1.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(221, 214, 254, 0.6);
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+            transition: height 0.5s ease;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .section:hover::before {
+            height: 100%;
+        }
+
+        .section:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(124, 58, 237, 0.25);
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--primary);
+            margin-bottom: 0.85rem;
+            border-bottom: 2px solid #ddd6fe;
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: var(--transition);
+        }
+
+        .section:hover .section-title {
+            border-bottom-color: var(--primary);
+            letter-spacing: 0.08em;
+        }
+
+        .section-title i {
+            font-size: 1rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .section:hover .section-title i {
+            transform: scale(1.2) rotate(-8deg);
+            color: var(--primary-dark);
+        }
+
+        /* Profile summary */
+        .profile-summary p {
+            font-size: 0.92rem;
+            color: var(--text-main);
+            line-height: 1.65;
+            text-align: justify;
+            transition: var(--transition);
+        }
+
+        .profile-summary:hover p {
+            color: #1e0f33;
+        }
+
+        /* Research interests */
+        .interest-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 0.25rem;
+        }
+
+        .interest-tag {
+            background: #f3efff;
+            color: var(--primary-dark);
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #c4b5fd;
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .interest-tag::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(124, 58, 237, 0.18);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s ease, height 0.5s ease;
+        }
+
+        .interest-tag:hover::after {
+            width: 200%;
+            height: 200%;
+        }
+
+        .interest-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 16px -6px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Education */
+        .edu-item {
+            margin-bottom: 1.4rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(196, 181, 253, 0.6);
+            transition: var(--transition);
+        }
+
+        .edu-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .edu-item:hover {
+            transform: translateX(6px);
+        }
+
+        .edu-title {
+            font-weight: 700;
+            font-size: 0.98rem;
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .edu-item:hover .edu-title {
+            color: var(--primary);
+            letter-spacing: 0.01em;
+        }
+
+        .edu-meta {
+            font-size: 0.82rem;
+            color: var(--text-soft);
+            margin: 0.2rem 0 0.3rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .edu-desc {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            margin-top: 0.4rem;
+            padding-left: 0.25rem;
+            list-style-type: none;
+        }
+
+        .edu-desc li {
+            margin-bottom: 0.35rem;
+            display: flex;
+            gap: 8px;
+            transition: var(--transition);
+            padding: 0.15rem 0.3rem;
+            border-radius: 6px;
+        }
+
+        .edu-desc li:hover {
+            background: rgba(124, 58, 237, 0.06);
+            transform: translateX(4px);
+        }
+
+        .edu-desc li i {
+            color: var(--primary);
+            font-size: 0.7rem;
+            margin-top: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .edu-desc li:hover i {
+            transform: scale(1.3);
+        }
+
+        .score-badge {
+            background: #ede9fe;
+            color: var(--primary-dark);
+            padding: 0.15rem 0.75rem;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: 0.75rem;
+            display: inline-block;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .edu-item:hover .score-badge {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        /* Experience / Research cards */
+        .exp-item {
+            margin-bottom: 1.6rem;
+            padding: 0.8rem 0.8rem 0.8rem 1rem;
+            border-radius: 14px;
+            transition: var(--transition);
+            border-left: 3px solid transparent;
+        }
+
+        .exp-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-item:hover {
+            background: rgba(245, 240, 255, 0.8);
+            border-left-color: var(--primary);
+            transform: translateX(6px);
+            box-shadow: 0 4px 16px -6px rgba(124, 58, 237, 0.18);
+        }
+
+        .exp-header {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .exp-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .exp-item:hover .exp-title {
+            color: var(--primary);
+        }
+
+        .exp-org {
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 0.9rem;
+        }
+
+        .exp-date {
+            font-size: 0.78rem;
+            color: #6d5a92;
+            background: #f3efff;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            white-space: nowrap;
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .exp-item:hover .exp-date {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        .exp-desc {
+            font-size: 0.88rem;
+            color: var(--text-main);
+            margin-top: 0.5rem;
+            padding-left: 1rem;
+        }
+
+        .exp-desc li {
+            margin-bottom: 0.35rem;
+            transition: var(--transition);
+            padding: 0.1rem 0.2rem;
+            border-radius: 4px;
+        }
+
+        .exp-desc li:hover {
+            background: rgba(124, 58, 237, 0.06);
+            transform: translateX(4px);
+        }
+
+        .pub-meta {
+            font-size: 0.8rem;
+            color: var(--text-soft);
+            margin-top: 0.3rem;
+            font-style: italic;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            font-size: 0.78rem;
+            word-break: break-all;
+            color: var(--primary);
+            text-decoration: none;
+            border-bottom: 1px dotted #c4b5fd;
+            transition: var(--transition);
+            padding: 0.1rem 0.2rem;
+            border-radius: 4px;
+        }
+
+        .pub-link:hover {
+            color: var(--primary-dark);
+            border-bottom-color: var(--primary-dark);
+            background: rgba(124, 58, 237, 0.08);
+            transform: translateY(-1px);
+        }
+
+        .chip {
+            display: inline-block;
+            background: #ede9fe;
+            color: var(--primary-dark);
+            border-radius: 30px;
+            padding: 0.15rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-right: 0.35rem;
+            margin-bottom: 0.35rem;
+            transition: var(--transition);
+            cursor: default;
+            border: 1px solid transparent;
+        }
+
+        .chip:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+
+        .first-author {
+            background: #ddd6fe;
+            font-weight: 600;
+        }
+
+        .first-author:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Skills */
+        .skills-block {
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-category {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.3rem;
+            transition: var(--transition);
+        }
+
+        .skill-category:hover {
+            color: var(--primary);
+            letter-spacing: 0.02em;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 0.85rem;
+        }
+
+        .skill-tag {
+            background: #f5f2ff;
+            border: 1px solid #ddd6fe;
+            color: var(--primary-dark);
+            font-size: 0.75rem;
+            padding: 0.25rem 0.9rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            cursor: default;
+            position: relative;
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 16px -6px rgba(124, 58, 237, 0.5);
+        }
+
+        /* Language + Social */
+        .lang-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            background: #faf8ff;
+            padding: 0.85rem 1.2rem;
+            border-radius: 16px;
+            margin-top: 0.5rem;
+            transition: var(--transition);
+            border: 1px solid #e9e4ff;
+        }
+
+        .lang-row:hover {
+            background: #f3efff;
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .lang-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .lang-item i {
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .lang-row:hover .lang-item i {
+            transform: rotate(20deg) scale(1.2);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-main);
+            text-decoration: none;
+            background: #f3efff;
+            padding: 0.35rem 1.1rem 0.35rem 0.9rem;
+            border-radius: 40px;
+            transition: var(--transition);
+            border: 1px solid #d5c9ff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-link:hover::before {
+            left: 100%;
+        }
+
+        .social-link i {
+            color: var(--primary);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 10px 20px -8px rgba(124, 58, 237, 0.55);
+        }
+
+        .social-link:hover i {
+            color: white;
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        /* Bottom extra (TOEFL + social) */
+        .bottom-extra {
+            padding: 1.8rem 2rem 2rem 2rem;
+            background: linear-gradient(145deg, #faf8ff 0%, #f3efff 100%);
+            border-top: 1px solid rgba(221, 214, 254, 0.8);
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .bottom-extra:hover {
+            background: linear-gradient(145deg, #f5f1ff 0%, #ede9fe 100%);
+        }
+
+        .toefl-block {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: white;
+            padding: 0.7rem 1.8rem 0.7rem 1.2rem;
+            border-radius: 50px;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .toefl-block:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            border-color: var(--primary-light);
+        }
+
+        .toefl-block i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .toefl-block:hover i {
+            transform: rotate(360deg) scale(1.1);
+        }
+
+        .toefl-text strong {
+            font-size: 1rem;
+        }
+
+        .toefl-text span {
+            font-size: 0.9rem;
+            color: var(--text-soft);
+            margin-left: 6px;
+            transition: var(--transition);
+        }
+
+        .toefl-block:hover .toefl-text span {
+            color: var(--primary-dark);
+        }
+
+        /* Scroll reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
+        .reveal-delay-5 { transition-delay: 0.5s; }
+
+        /* Responsive */
+        @media (max-width: 800px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+
+            .hero {
+                padding: 1.8rem 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+
+            .bottom-extra {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1.5rem;
+            }
+
+            .section {
+                padding: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .exp-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .exp-date {
+                white-space: normal;
+            }
+
+            .lang-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .hero .subhead {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .toefl-block {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+            .reveal {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f5f3ff;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+            border-radius: 10px;
+            border: 2px solid #f5f3ff;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+    </style>
+</head>
+<body>
+    <div class="portfolio">
+        <!-- Hero -->
+        <div class="hero">
+            <img class="avatar" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='128' height='128' viewBox='0 0 128 128'%3E%3Ccircle cx='64' cy='64' r='64' fill='%235b21b6'/%3E%3Ccircle cx='64' cy='48' r='22' fill='%23ede9fe'/%3E%3Cpath d='M64 86c-24 0-38 12-38 26v16h76v-16c0-14-14-26-38-26z' fill='%23ede9fe'/%3E%3C/svg%3E" alt="Portrait placeholder">
+            <h1>Amir Hemmati</h1>
+            <div style="font-weight: 500; color: #7c3aed; margin-bottom: 0.25rem; position: relative; z-index: 1;">PhD Applicant</div>
+            <div class="subhead">
+                <span><i class="fas fa-envelope"></i> hemmati.be@gmail.com</span>
+                <span><i class="fas fa-map-marker-alt"></i> Tehran, Iran</span>
+            </div>
+            <div class="badge-container">
+                <span class="badge">Cybersecurity</span>
+                <span class="badge">Machine Learning</span>
+                <span class="badge">Threat Detection</span>
+                <span class="badge">MITRE ATT&CK</span>
+            </div>
+        </div>
+
+        <!-- Main grid -->
+        <div class="main-grid">
+            <!-- LEFT COLUMN -->
+            <div class="left-col">
+                <!-- Profile Summary -->
+                <div class="section reveal">
+                    <div class="section-title"><i class="fas fa-user-circle"></i> Profile Summary</div>
+                    <div class="profile-summary">
+                        <p>MSc in Information Technology Engineering (Cybersecurity) and BSc in Computer Engineering, with research experience at the intersection of cybersecurity, machine learning, and intelligent security analysis. My research has focused on security telemetry analysis, behavior-centric threat detection, and machine-learning-based classification of adversarial behavior, including the use of Transformer models and MITRE ATT&CK-based representations. Through my MSc thesis and subsequent research, I developed experimental frameworks to correlate heterogeneous security data and systematically evaluate machine-learning and deep-learning approaches for automated security analysis.</p>
+                    </div>
+                </div>
+
+                <!-- Research Interests -->
+                <div class="section reveal reveal-delay-1">
+                    <div class="section-title"><i class="fas fa-flask"></i> Research Interests</div>
+                    <div class="interest-tags">
+                        <span class="interest-tag">Machine Learning for Threat Detection</span>
+                        <span class="interest-tag">Cybersecurity Context-aware Models</span>
+                        <span class="interest-tag">IoT and Edge Security</span>
+                        <span class="interest-tag">Artificial Intelligence Security</span>
+                        <span class="interest-tag">Trustworthy AI</span>
+                        <span class="interest-tag">Adversarial Machine Learning</span>
+                        <span class="interest-tag">AI-Driven Cybersecurity</span>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="section reveal reveal-delay-2">
+                    <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                    <div class="edu-item">
+                        <div class="edu-title">Master of Information Technology Engineering</div>
+                        <div class="edu-meta">
+                            <span>Cybersecurity Management</span>
+                            <span>Amirkabir University of Technology</span>
+                            <span>Tehran, Iran</span>
+                            <span>Sep 2023 – Oct 2025</span>
+                        </div>
+                        <div class="score-badge">GPA: 18.36/20</div>
+                        <ul class="edu-desc">
+                            <li><i class="fas fa-caret-right"></i> Thesis: Refining Threat Hunting by Improving Automated Hypothesis Modeling Based on Tactics, Techniques, and Procedures, and Implementing Attack Stages in the Dataset</li>
+                            <li><i class="fas fa-caret-right"></i> Thesis Final Score: 19/20</li>
+                            <li><i class="fas fa-caret-right"></i> Relevant Courses: Cyber Security, Cyber Security Intelligence, Digital Forensics, Decision Support Systems, Special Topics in Cyber Security Management, Seminar & Research Methods</li>
+                        </ul>
+                    </div>
+                    <div class="edu-item">
+                        <div class="edu-title">Bachelor of Computer Engineering</div>
+                        <div class="edu-meta">
+                            <span>University of Semnan</span>
+                            <span>Semnan, Iran</span>
+                            <span>Sep 2017 – Aug 2022</span>
+                        </div>
+                        <div class="score-badge">GPA: 14.97/20</div>
+                        <ul class="edu-desc">
+                            <li><i class="fas fa-caret-right"></i> Project: Design and Implementation of a Web-Based E-Commerce Management System</li>
+                            <li><i class="fas fa-caret-right"></i> Project Final Score: 19/20</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="section reveal reveal-delay-3">
+                    <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+                    <div class="skills-block">
+                        <div class="skill-category">AI & Machine Learning</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Machine Learning</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Transformer Models</span>
+                        </div>
+                        <div class="skill-category">Research & Data Analysis</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Experimental Framework Design</span>
+                            <span class="skill-tag">Empirical Model Evaluation</span>
+                            <span class="skill-tag">Data Preprocessing</span>
+                            <span class="skill-tag">Feature Selection</span>
+                            <span class="skill-tag">Event Correlation</span>
+                            <span class="skill-tag">Reproducible Research</span>
+                        </div>
+                        <div class="skill-category">Cybersecurity</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Threat Detection & Response</span>
+                            <span class="skill-tag">Threat Modeling</span>
+                            <span class="skill-tag">Threat Hunting</span>
+                            <span class="skill-tag">MITRE ATT&CK Navigator</span>
+                        </div>
+                        <div class="skill-category">Programming & Tools</div>
+                        <div class="skill-items">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">PyTorch</span>
+                            <span class="skill-tag">Linux</span>
+                            <span class="skill-tag">Splunk</span>
+                            <span class="skill-tag">Wireshark</span>
+                            <span class="skill-tag">Volatility</span>
+                            <span class="skill-tag">Autopsy</span>
+                            <span class="skill-tag">Nessus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN -->
+            <div class="right-col">
+                <!-- Experience -->
+                <div class="section reveal reveal-delay-2">
+                    <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Cybersecurity Specialist</span>
+                            <span class="exp-date">Jun 2024 – Aug 2025</span>
+                        </div>
+                        <div class="exp-org">APA Cybersecurity Lab · Tehran, Iran</div>
+                        <ul class="exp-desc">
+                            <li>Conducted vulnerability assessments and penetration testing to identify security weaknesses and support system resilience.</li>
+                            <li>Performed incident response and security analysis for cybersecurity incidents.</li>
+                            <li>Collaborated with cross-functional teams on security architecture and mitigation strategies.</li>
+                            <li>Applied practical threat modeling and security assessment techniques to real-world systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Research -->
+                <div class="section reveal reveal-delay-3">
+                    <div class="section-title"><i class="fas fa-scroll"></i> Research</div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Enhancing Windows Threat Detection by Mapping Sysmon Telemetry Data to MITRE ATT&CK Techniques Using Natural Language Processing</span>
+                            <span class="exp-date">Jul 2026</span>
+                        </div>
+                        <div class="pub-meta"><i class="fas fa-building"></i> 2nd Conference on Data Governance and AI - University of Tehran</div>
+                        <div style="margin-top: 8px;">
+                            <span class="chip first-author">First Author</span>
+                            <span class="chip">Accepted</span>
+                        </div>
+                        <ul class="exp-desc" style="margin-top: 8px;">
+                            <li>Developed an NLP-based approach for mapping low-level Sysmon security telemetry to higher-level MITRE ATT&CK techniques.</li>
+                            <li>Designed a data-processing and model-evaluation pipeline for transforming heterogeneous security telemetry into a machine-learning classification task.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">From Telemetry to Techniques: Behavior-Centric MITRE ATT&CK Technique Classification Through Sysmon Event Correlation</span>
+                            <span class="exp-date">Sep 2026</span>
+                        </div>
+                        <div class="pub-meta"><i class="fas fa-book"></i> Journal of Computer Virology and Hacking Techniques</div>
+                        <div class="pub-meta" style="font-style: normal; margin-top: 2px;">
+                            <i class="fas fa-link"></i> <a href="https://doi.org/10.21203/rs.3.rs-10331677/v1" class="pub-link" target="_blank">https://doi.org/10.21203/rs.3.rs-10331677/v1</a>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="chip first-author">First Author</span>
+                            <span class="chip">Under Peer Review</span>
+                        </div>
+                        <ul class="exp-desc" style="margin-top: 8px;">
+                            <li>Designed an empirical framework comparing event-correlation strategies, learning paradigms, and class-imbalance approaches for adversarial behavior classification.</li>
+                            <li>Evaluated traditional machine-learning and cybersecurity-specific Transformer models on correlated security telemetry.</li>
+                            <li>Investigated how behavioral context influences the robustness and effectiveness of automated security classification.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom: TOEFL + social -->
+        <div class="bottom-extra reveal reveal-delay-4">
+            <div class="toefl-block">
+                <i class="fas fa-globe-americas"></i>
+                <div class="toefl-text">
+                    <strong>English: Proficient</strong>
+                    <span>TOEFL iBT Score: 103</span>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#" class="social-link" aria-label="Social network">
+                    <i class="fas fa-globe"></i> hemmati-be
+                </a>
+                <a href="#" class="social-link" aria-label="Social network">
+                    <i class="fas fa-globe"></i> amir-hh
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const revealElements = document.querySelectorAll('.reveal');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.12,
+                rootMargin: '0px 0px -40px 0px'
+            });
+
+            revealElements.forEach(el => observer.observe(el));
+
+            window.addEventListener('load', () => {
+                revealElements.forEach(el => {
+                    const rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 80) {
+                        el.classList.add('visible');
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
