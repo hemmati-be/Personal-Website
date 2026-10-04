@@ -40,12 +40,11 @@
             background-attachment: fixed;
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
             min-height: 100vh;
             padding: 2rem 1rem;
             line-height: 1.5;
             color: var(--text-main);
-            perspective: 1200px;
         }
 
         /* Animated violet background blobs */
@@ -81,7 +80,7 @@
         }
 
         .portfolio {
-            max-width: 1100px;
+            max-width: 860px;
             width: 100%;
             background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
@@ -92,7 +91,6 @@
             display: flex;
             flex-direction: column;
             border: 1px solid rgba(255, 255, 255, 0.6);
-            transition: var(--transition);
             animation: cardEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
         }
 
@@ -105,10 +103,6 @@
                 opacity: 1;
                 transform: translateY(0) scale(1);
             }
-        }
-
-        .portfolio:hover {
-            box-shadow: 0 40px 80px -20px rgba(91, 33, 182, 0.3);
         }
 
         /* Header / hero */
@@ -164,7 +158,6 @@
             font-size: 2.4rem;
             font-weight: 700;
             letter-spacing: -0.02em;
-            color: var(--primary-dark);
             margin-bottom: 0.25rem;
             text-align: center;
             position: relative;
@@ -257,19 +250,12 @@
             animation-play-state: paused;
         }
 
-        /* Main grid */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.8fr;
-            gap: 2rem;
-            padding: 2.2rem 2rem 2.2rem 2rem;
-        }
-
-        .left-col,
-        .right-col {
+        /* Single column content */
+        .content {
             display: flex;
             flex-direction: column;
             gap: 1.75rem;
+            padding: 2.2rem 2rem;
         }
 
         /* Sections */
@@ -339,9 +325,9 @@
 
         /* Profile summary */
         .profile-summary p {
-            font-size: 0.92rem;
+            font-size: 0.95rem;
             color: var(--text-main);
-            line-height: 1.65;
+            line-height: 1.7;
             text-align: justify;
             transition: var(--transition);
         }
@@ -361,7 +347,7 @@
         .interest-tag {
             background: #f3efff;
             color: var(--primary-dark);
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             font-weight: 500;
             padding: 0.4rem 1rem;
             border-radius: 40px;
@@ -400,8 +386,8 @@
 
         /* Education */
         .edu-item {
-            margin-bottom: 1.4rem;
-            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.2rem;
             border-bottom: 1px dashed rgba(196, 181, 253, 0.6);
             transition: var(--transition);
         }
@@ -418,7 +404,7 @@
 
         .edu-title {
             font-weight: 700;
-            font-size: 0.98rem;
+            font-size: 1.02rem;
             color: var(--primary-dark);
             transition: var(--transition);
         }
@@ -429,16 +415,16 @@
         }
 
         .edu-meta {
-            font-size: 0.82rem;
+            font-size: 0.85rem;
             color: var(--text-soft);
-            margin: 0.2rem 0 0.3rem;
+            margin: 0.3rem 0;
             display: flex;
             flex-wrap: wrap;
             gap: 0.75rem;
         }
 
         .edu-desc {
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-main);
             margin-top: 0.4rem;
             padding-left: 0.25rem;
@@ -446,7 +432,7 @@
         }
 
         .edu-desc li {
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.4rem;
             display: flex;
             gap: 8px;
             transition: var(--transition);
@@ -462,7 +448,7 @@
         .edu-desc li i {
             color: var(--primary);
             font-size: 0.7rem;
-            margin-top: 0.3rem;
+            margin-top: 0.35rem;
             transition: var(--transition);
         }
 
@@ -476,7 +462,7 @@
             padding: 0.15rem 0.75rem;
             border-radius: 20px;
             font-weight: 500;
-            font-size: 0.75rem;
+            font-size: 0.78rem;
             display: inline-block;
             transition: var(--transition);
             border: 1px solid transparent;
@@ -491,8 +477,8 @@
 
         /* Experience / Research cards */
         .exp-item {
-            margin-bottom: 1.6rem;
-            padding: 0.8rem 0.8rem 0.8rem 1rem;
+            margin-bottom: 1.8rem;
+            padding: 1rem 1rem 1rem 1.2rem;
             border-radius: 14px;
             transition: var(--transition);
             border-left: 3px solid transparent;
@@ -519,7 +505,7 @@
 
         .exp-title {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.02rem;
             color: var(--primary-dark);
             transition: var(--transition);
         }
@@ -531,14 +517,15 @@
         .exp-org {
             font-weight: 500;
             color: var(--primary);
-            font-size: 0.9rem;
+            font-size: 0.92rem;
+            margin-top: 0.15rem;
         }
 
         .exp-date {
             font-size: 0.78rem;
             color: #6d5a92;
             background: #f3efff;
-            padding: 0.2rem 0.8rem;
+            padding: 0.25rem 0.9rem;
             border-radius: 30px;
             white-space: nowrap;
             transition: var(--transition);
@@ -552,16 +539,16 @@
         }
 
         .exp-desc {
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             color: var(--text-main);
-            margin-top: 0.5rem;
+            margin-top: 0.6rem;
             padding-left: 1rem;
         }
 
         .exp-desc li {
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.4rem;
             transition: var(--transition);
-            padding: 0.1rem 0.2rem;
+            padding: 0.1rem 0.3rem;
             border-radius: 4px;
         }
 
@@ -571,9 +558,9 @@
         }
 
         .pub-meta {
-            font-size: 0.8rem;
+            font-size: 0.82rem;
             color: var(--text-soft);
-            margin-top: 0.3rem;
+            margin-top: 0.4rem;
             font-style: italic;
             display: flex;
             align-items: center;
@@ -582,7 +569,7 @@
         }
 
         .pub-link {
-            font-size: 0.78rem;
+            font-size: 0.8rem;
             word-break: break-all;
             color: var(--primary);
             text-decoration: none;
@@ -604,8 +591,8 @@
             background: #ede9fe;
             color: var(--primary-dark);
             border-radius: 30px;
-            padding: 0.15rem 0.75rem;
-            font-size: 0.7rem;
+            padding: 0.18rem 0.8rem;
+            font-size: 0.72rem;
             font-weight: 500;
             margin-right: 0.35rem;
             margin-bottom: 0.35rem;
@@ -632,14 +619,14 @@
 
         /* Skills */
         .skills-block {
-            margin-bottom: 0.8rem;
+            margin-bottom: 1rem;
         }
 
         .skill-category {
             font-weight: 600;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--primary-dark);
-            margin-bottom: 0.3rem;
+            margin-bottom: 0.4rem;
             transition: var(--transition);
         }
 
@@ -652,15 +639,15 @@
             display: flex;
             flex-wrap: wrap;
             gap: 6px;
-            margin-bottom: 0.85rem;
+            margin-bottom: 0.9rem;
         }
 
         .skill-tag {
             background: #f5f2ff;
             border: 1px solid #ddd6fe;
             color: var(--primary-dark);
-            font-size: 0.75rem;
-            padding: 0.25rem 0.9rem;
+            font-size: 0.78rem;
+            padding: 0.3rem 1rem;
             border-radius: 30px;
             transition: var(--transition);
             cursor: default;
@@ -675,21 +662,21 @@
             box-shadow: 0 8px 16px -6px rgba(124, 58, 237, 0.5);
         }
 
-        /* Language + Social */
-        .lang-row {
+        /* Language + Social row */
+        .lang-social-row {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: 1.5rem;
             background: #faf8ff;
-            padding: 0.85rem 1.2rem;
+            padding: 1rem 1.5rem;
             border-radius: 16px;
-            margin-top: 0.5rem;
             transition: var(--transition);
             border: 1px solid #e9e4ff;
         }
 
-        .lang-row:hover {
+        .lang-social-row:hover {
             background: #f3efff;
             border-color: var(--primary-light);
             box-shadow: var(--shadow-sm);
@@ -699,7 +686,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
         }
 
         .lang-item i {
@@ -708,26 +695,25 @@
             transition: var(--transition);
         }
 
-        .lang-row:hover .lang-item i {
+        .lang-social-row:hover .lang-item i {
             transform: rotate(20deg) scale(1.2);
         }
 
         .social-links {
             display: flex;
-            gap: 1.2rem;
+            gap: 1rem;
             flex-wrap: wrap;
-            margin-top: 0.5rem;
         }
 
         .social-link {
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             color: var(--text-main);
             text-decoration: none;
             background: #f3efff;
-            padding: 0.35rem 1.1rem 0.35rem 0.9rem;
+            padding: 0.4rem 1.2rem 0.4rem 1rem;
             border-radius: 40px;
             transition: var(--transition);
             border: 1px solid #d5c9ff;
@@ -769,16 +755,15 @@
             transform: scale(1.2) rotate(-10deg);
         }
 
-        /* Bottom extra (TOEFL + social) */
+        /* Bottom extra (TOEFL) */
         .bottom-extra {
-            padding: 1.8rem 2rem 2rem 2rem;
+            padding: 1.5rem 2rem 2rem 2rem;
             background: linear-gradient(145deg, #faf8ff 0%, #f3efff 100%);
             border-top: 1px solid rgba(221, 214, 254, 0.8);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            gap: 1.5rem;
+            justify-content: center;
             transition: var(--transition);
         }
 
@@ -791,7 +776,7 @@
             align-items: center;
             gap: 14px;
             background: white;
-            padding: 0.7rem 1.8rem 0.7rem 1.2rem;
+            padding: 0.8rem 2rem 0.8rem 1.4rem;
             border-radius: 50px;
             box-shadow: var(--shadow-sm);
             transition: var(--transition);
@@ -845,36 +830,35 @@
         .reveal-delay-2 { transition-delay: 0.2s; }
         .reveal-delay-3 { transition-delay: 0.3s; }
         .reveal-delay-4 { transition-delay: 0.4s; }
-        .reveal-delay-5 { transition-delay: 0.5s; }
 
         /* Responsive */
-        @media (max-width: 800px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-                padding: 1.5rem;
+        @media (max-width: 640px) {
+            body {
+                padding: 1rem 0.75rem;
             }
 
             .hero {
-                padding: 1.8rem 1rem;
+                padding: 2rem 1.2rem 1.5rem;
             }
 
             .hero h1 {
                 font-size: 1.9rem;
             }
 
-            .bottom-extra {
+            .hero .subhead {
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 1.5rem;
+                align-items: center;
+                gap: 0.5rem;
+            }
+
+            .content {
+                padding: 1.5rem 1.2rem;
             }
 
             .section {
                 padding: 1.2rem;
             }
-        }
 
-        @media (max-width: 480px) {
             .exp-header {
                 flex-direction: column;
                 align-items: flex-start;
@@ -884,21 +868,19 @@
                 white-space: normal;
             }
 
-            .lang-row {
+            .lang-social-row {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 12px;
-            }
-
-            .hero .subhead {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
+                gap: 1rem;
             }
 
             .toefl-block {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .bottom-extra {
+                padding: 1.2rem;
             }
         }
 
@@ -956,185 +938,176 @@
             </div>
         </div>
 
-        <!-- Main grid -->
-        <div class="main-grid">
-            <!-- LEFT COLUMN: Profile Summary, Research Interests, Experience, Research -->
-            <div class="left-col">
-                <!-- Profile Summary -->
-                <div class="section reveal">
-                    <div class="section-title"><i class="fas fa-user-circle"></i> Profile Summary</div>
-                    <div class="profile-summary">
-                        <p>MSc in Information Technology Engineering (Cybersecurity) and BSc in Computer Engineering, with research experience at the intersection of cybersecurity, machine learning, and intelligent security analysis. My research has focused on security telemetry analysis, behavior-centric threat detection, and machine-learning-based classification of adversarial behavior, including the use of Transformer models and MITRE ATT&CK-based representations. Through my MSc thesis and subsequent research, I developed experimental frameworks to correlate heterogeneous security data and systematically evaluate machine-learning and deep-learning approaches for automated security analysis.</p>
+        <!-- Single column content -->
+        <div class="content">
+            <!-- Profile Summary -->
+            <div class="section reveal">
+                <div class="section-title"><i class="fas fa-user-circle"></i> Profile Summary</div>
+                <div class="profile-summary">
+                    <p>MSc in Information Technology Engineering (Cybersecurity) and BSc in Computer Engineering, with research experience at the intersection of cybersecurity, machine learning, and intelligent security analysis. My research has focused on security telemetry analysis, behavior-centric threat detection, and machine-learning-based classification of adversarial behavior, including the use of Transformer models and MITRE ATT&CK-based representations. Through my MSc thesis and subsequent research, I developed experimental frameworks to correlate heterogeneous security data and systematically evaluate machine-learning and deep-learning approaches for automated security analysis.</p>
+                </div>
+            </div>
+
+            <!-- Research Interests -->
+            <div class="section reveal reveal-delay-1">
+                <div class="section-title"><i class="fas fa-flask"></i> Research Interests</div>
+                <div class="interest-tags">
+                    <span class="interest-tag">Machine Learning for Threat Detection</span>
+                    <span class="interest-tag">Cybersecurity Context-aware Models</span>
+                    <span class="interest-tag">IoT and Edge Security</span>
+                    <span class="interest-tag">Artificial Intelligence Security</span>
+                    <span class="interest-tag">Trustworthy AI</span>
+                    <span class="interest-tag">Adversarial Machine Learning</span>
+                    <span class="interest-tag">AI-Driven Cybersecurity</span>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="section reveal reveal-delay-2">
+                <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
+                <div class="edu-item">
+                    <div class="edu-title">Master of Information Technology Engineering</div>
+                    <div class="edu-meta">
+                        <span>Cybersecurity Management</span>
+                        <span>Amirkabir University of Technology</span>
+                        <span>Tehran, Iran</span>
+                        <span>Sep 2023 – Oct 2025</span>
                     </div>
+                    <div class="score-badge">GPA: 18.36/20</div>
+                    <ul class="edu-desc">
+                        <li><i class="fas fa-caret-right"></i> Thesis: Refining Threat Hunting by Improving Automated Hypothesis Modeling Based on Tactics, Techniques, and Procedures, and Implementing Attack Stages in the Dataset</li>
+                        <li><i class="fas fa-caret-right"></i> Thesis Final Score: 19/20</li>
+                        <li><i class="fas fa-caret-right"></i> Relevant Courses: Cyber Security, Cyber Security Intelligence, Digital Forensics, Decision Support Systems, Special Topics in Cyber Security Management, Seminar & Research Methods</li>
+                    </ul>
+                </div>
+                <div class="edu-item">
+                    <div class="edu-title">Bachelor of Computer Engineering</div>
+                    <div class="edu-meta">
+                        <span>University of Semnan</span>
+                        <span>Semnan, Iran</span>
+                        <span>Sep 2017 – Aug 2022</span>
+                    </div>
+                    <div class="score-badge">GPA: 14.97/20</div>
+                    <ul class="edu-desc">
+                        <li><i class="fas fa-caret-right"></i> Project: Design and Implementation of a Web-Based E-Commerce Management System</li>
+                        <li><i class="fas fa-caret-right"></i> Project Final Score: 19/20</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="section reveal reveal-delay-2">
+                <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Cybersecurity Specialist</span>
+                        <span class="exp-date">Jun 2024 – Aug 2025</span>
+                    </div>
+                    <div class="exp-org">APA Cybersecurity Lab · Tehran, Iran</div>
+                    <ul class="exp-desc">
+                        <li>Conducted vulnerability assessments and penetration testing to identify security weaknesses and support system resilience.</li>
+                        <li>Performed incident response and security analysis for cybersecurity incidents.</li>
+                        <li>Collaborated with cross-functional teams on security architecture and mitigation strategies.</li>
+                        <li>Applied practical threat modeling and security assessment techniques to real-world systems.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Research -->
+            <div class="section reveal reveal-delay-3">
+                <div class="section-title"><i class="fas fa-scroll"></i> Research</div>
+
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">Enhancing Windows Threat Detection by Mapping Sysmon Telemetry Data to MITRE ATT&CK Techniques Using Natural Language Processing</span>
+                        <span class="exp-date">Jul 2026</span>
+                    </div>
+                    <div class="pub-meta"><i class="fas fa-building"></i> 2nd Conference on Data Governance and AI - University of Tehran</div>
+                    <div style="margin-top: 8px;">
+                        <span class="chip first-author">First Author</span>
+                        <span class="chip">Accepted</span>
+                    </div>
+                    <ul class="exp-desc" style="margin-top: 8px;">
+                        <li>Developed an NLP-based approach for mapping low-level Sysmon security telemetry to higher-level MITRE ATT&CK techniques.</li>
+                        <li>Designed a data-processing and model-evaluation pipeline for transforming heterogeneous security telemetry into a machine-learning classification task.</li>
+                    </ul>
                 </div>
 
-                <!-- Research Interests -->
-                <div class="section reveal reveal-delay-1">
-                    <div class="section-title"><i class="fas fa-flask"></i> Research Interests</div>
-                    <div class="interest-tags">
-                        <span class="interest-tag">Machine Learning for Threat Detection</span>
-                        <span class="interest-tag">Cybersecurity Context-aware Models</span>
-                        <span class="interest-tag">IoT and Edge Security</span>
-                        <span class="interest-tag">Artificial Intelligence Security</span>
-                        <span class="interest-tag">Trustworthy AI</span>
-                        <span class="interest-tag">Adversarial Machine Learning</span>
-                        <span class="interest-tag">AI-Driven Cybersecurity</span>
+                <div class="exp-item">
+                    <div class="exp-header">
+                        <span class="exp-title">From Telemetry to Techniques: Behavior-Centric MITRE ATT&CK Technique Classification Through Sysmon Event Correlation</span>
+                        <span class="exp-date">Sep 2026</span>
                     </div>
+                    <div class="pub-meta"><i class="fas fa-book"></i> Journal of Computer Virology and Hacking Techniques</div>
+                    <div class="pub-meta" style="font-style: normal; margin-top: 2px;">
+                        <i class="fas fa-link"></i> <a href="https://doi.org/10.21203/rs.3.rs-10331677/v1" class="pub-link" target="_blank">https://doi.org/10.21203/rs.3.rs-10331677/v1</a>
+                    </div>
+                    <div style="margin-top: 8px;">
+                        <span class="chip first-author">First Author</span>
+                        <span class="chip">Under Peer Review</span>
+                    </div>
+                    <ul class="exp-desc" style="margin-top: 8px;">
+                        <li>Designed an empirical framework comparing event-correlation strategies, learning paradigms, and class-imbalance approaches for adversarial behavior classification.</li>
+                        <li>Evaluated traditional machine-learning and cybersecurity-specific Transformer models on correlated security telemetry.</li>
+                        <li>Investigated how behavioral context influences the robustness and effectiveness of automated security classification.</li>
+                    </ul>
                 </div>
+            </div>
 
-                <!-- Experience -->
-                <div class="section reveal reveal-delay-2">
-                    <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-title">Cybersecurity Specialist</span>
-                            <span class="exp-date">Jun 2024 – Aug 2025</span>
-                        </div>
-                        <div class="exp-org">APA Cybersecurity Lab · Tehran, Iran</div>
-                        <ul class="exp-desc">
-                            <li>Conducted vulnerability assessments and penetration testing to identify security weaknesses and support system resilience.</li>
-                            <li>Performed incident response and security analysis for cybersecurity incidents.</li>
-                            <li>Collaborated with cross-functional teams on security architecture and mitigation strategies.</li>
-                            <li>Applied practical threat modeling and security assessment techniques to real-world systems.</li>
-                        </ul>
+            <!-- Technical Skills -->
+            <div class="section reveal reveal-delay-3">
+                <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
+                <div class="skills-block">
+                    <div class="skill-category">AI & Machine Learning</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Machine Learning</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Transformer Models</span>
                     </div>
-                </div>
-
-                <!-- Research -->
-                <div class="section reveal reveal-delay-3">
-                    <div class="section-title"><i class="fas fa-scroll"></i> Research</div>
-
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-title">Enhancing Windows Threat Detection by Mapping Sysmon Telemetry Data to MITRE ATT&CK Techniques Using Natural Language Processing</span>
-                            <span class="exp-date">Jul 2026</span>
-                        </div>
-                        <div class="pub-meta"><i class="fas fa-building"></i> 2nd Conference on Data Governance and AI - University of Tehran</div>
-                        <div style="margin-top: 8px;">
-                            <span class="chip first-author">First Author</span>
-                            <span class="chip">Accepted</span>
-                        </div>
-                        <ul class="exp-desc" style="margin-top: 8px;">
-                            <li>Developed an NLP-based approach for mapping low-level Sysmon security telemetry to higher-level MITRE ATT&CK techniques.</li>
-                            <li>Designed a data-processing and model-evaluation pipeline for transforming heterogeneous security telemetry into a machine-learning classification task.</li>
-                        </ul>
+                    <div class="skill-category">Research & Data Analysis</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Experimental Framework Design</span>
+                        <span class="skill-tag">Empirical Model Evaluation</span>
+                        <span class="skill-tag">Data Preprocessing</span>
+                        <span class="skill-tag">Feature Selection</span>
+                        <span class="skill-tag">Event Correlation</span>
+                        <span class="skill-tag">Reproducible Research</span>
                     </div>
-
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-title">From Telemetry to Techniques: Behavior-Centric MITRE ATT&CK Technique Classification Through Sysmon Event Correlation</span>
-                            <span class="exp-date">Sep 2026</span>
-                        </div>
-                        <div class="pub-meta"><i class="fas fa-book"></i> Journal of Computer Virology and Hacking Techniques</div>
-                        <div class="pub-meta" style="font-style: normal; margin-top: 2px;">
-                            <i class="fas fa-link"></i> <a href="https://doi.org/10.21203/rs.3.rs-10331677/v1" class="pub-link" target="_blank">https://doi.org/10.21203/rs.3.rs-10331677/v1</a>
-                        </div>
-                        <div style="margin-top: 8px;">
-                            <span class="chip first-author">First Author</span>
-                            <span class="chip">Under Peer Review</span>
-                        </div>
-                        <ul class="exp-desc" style="margin-top: 8px;">
-                            <li>Designed an empirical framework comparing event-correlation strategies, learning paradigms, and class-imbalance approaches for adversarial behavior classification.</li>
-                            <li>Evaluated traditional machine-learning and cybersecurity-specific Transformer models on correlated security telemetry.</li>
-                            <li>Investigated how behavioral context influences the robustness and effectiveness of automated security classification.</li>
-                        </ul>
+                    <div class="skill-category">Cybersecurity</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Threat Detection & Response</span>
+                        <span class="skill-tag">Threat Modeling</span>
+                        <span class="skill-tag">Threat Hunting</span>
+                        <span class="skill-tag">MITRE ATT&CK Navigator</span>
+                    </div>
+                    <div class="skill-category">Programming & Tools</div>
+                    <div class="skill-items">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Linux</span>
+                        <span class="skill-tag">Splunk</span>
+                        <span class="skill-tag">Wireshark</span>
+                        <span class="skill-tag">Volatility</span>
+                        <span class="skill-tag">Autopsy</span>
+                        <span class="skill-tag">Nessus</span>
                     </div>
                 </div>
             </div>
 
-            <!-- RIGHT COLUMN: Education, Technical Skills -->
-            <div class="right-col">
-                <!-- Education -->
-                <div class="section reveal reveal-delay-2">
-                    <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
-                    <div class="edu-item">
-                        <div class="edu-title">Master of Information Technology Engineering</div>
-                        <div class="edu-meta">
-                            <span>Cybersecurity Management</span>
-                            <span>Amirkabir University of Technology</span>
-                            <span>Tehran, Iran</span>
-                            <span>Sep 2023 – Oct 2025</span>
-                        </div>
-                        <div class="score-badge">GPA: 18.36/20</div>
-                        <ul class="edu-desc">
-                            <li><i class="fas fa-caret-right"></i> Thesis: Refining Threat Hunting by Improving Automated Hypothesis Modeling Based on Tactics, Techniques, and Procedures, and Implementing Attack Stages in the Dataset</li>
-                            <li><i class="fas fa-caret-right"></i> Thesis Final Score: 19/20</li>
-                            <li><i class="fas fa-caret-right"></i> Relevant Courses: Cyber Security, Cyber Security Intelligence, Digital Forensics, Decision Support Systems, Special Topics in Cyber Security Management, Seminar & Research Methods</li>
-                        </ul>
-                    </div>
-                    <div class="edu-item">
-                        <div class="edu-title">Bachelor of Computer Engineering</div>
-                        <div class="edu-meta">
-                            <span>University of Semnan</span>
-                            <span>Semnan, Iran</span>
-                            <span>Sep 2017 – Aug 2022</span>
-                        </div>
-                        <div class="score-badge">GPA: 14.97/20</div>
-                        <ul class="edu-desc">
-                            <li><i class="fas fa-caret-right"></i> Project: Design and Implementation of a Web-Based E-Commerce Management System</li>
-                            <li><i class="fas fa-caret-right"></i> Project Final Score: 19/20</li>
-                        </ul>
-                    </div>
+            <!-- Language + Social -->
+            <div class="lang-social-row reveal reveal-delay-4">
+                <div class="lang-item">
+                    <i class="fas fa-globe-americas"></i>
+                    <span><strong>English:</strong> Proficient · TOEFL iBT 103</span>
                 </div>
-
-                <!-- Technical Skills -->
-                <div class="section reveal reveal-delay-3">
-                    <div class="section-title"><i class="fas fa-code"></i> Technical Skills</div>
-                    <div class="skills-block">
-                        <div class="skill-category">AI & Machine Learning</div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Machine Learning</span>
-                            <span class="skill-tag">NLP</span>
-                            <span class="skill-tag">Transformer Models</span>
-                        </div>
-                        <div class="skill-category">Research & Data Analysis</div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Experimental Framework Design</span>
-                            <span class="skill-tag">Empirical Model Evaluation</span>
-                            <span class="skill-tag">Data Preprocessing</span>
-                            <span class="skill-tag">Feature Selection</span>
-                            <span class="skill-tag">Event Correlation</span>
-                            <span class="skill-tag">Reproducible Research</span>
-                        </div>
-                        <div class="skill-category">Cybersecurity</div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Threat Detection & Response</span>
-                            <span class="skill-tag">Threat Modeling</span>
-                            <span class="skill-tag">Threat Hunting</span>
-                            <span class="skill-tag">MITRE ATT&CK Navigator</span>
-                        </div>
-                        <div class="skill-category">Programming & Tools</div>
-                        <div class="skill-items">
-                            <span class="skill-tag">Python</span>
-                            <span class="skill-tag">PyTorch</span>
-                            <span class="skill-tag">Linux</span>
-                            <span class="skill-tag">Splunk</span>
-                            <span class="skill-tag">Wireshark</span>
-                            <span class="skill-tag">Volatility</span>
-                            <span class="skill-tag">Autopsy</span>
-                            <span class="skill-tag">Nessus</span>
-                        </div>
-                    </div>
+                <div class="social-links">
+                    <a href="#" class="social-link" aria-label="Social network">
+                        <i class="fas fa-globe"></i> hemmati-be
+                    </a>
+                    <a href="#" class="social-link" aria-label="Social network">
+                        <i class="fas fa-globe"></i> amir-hh
+                    </a>
                 </div>
-            </div>
-        </div>
-
-        <!-- Bottom: TOEFL + social -->
-        <div class="bottom-extra reveal reveal-delay-4">
-            <div class="toefl-block">
-                <i class="fas fa-globe-americas"></i>
-                <div class="toefl-text">
-                    <strong>English: Proficient</strong>
-                    <span>TOEFL iBT Score: 103</span>
-                </div>
-            </div>
-            <div class="social-links">
-                <a href="#" class="social-link" aria-label="Social network">
-                    <i class="fas fa-globe"></i> hemmati-be
-                </a>
-                <a href="#" class="social-link" aria-label="Social network">
-                    <i class="fas fa-globe"></i> amir-hh
-                </a>
             </div>
         </div>
     </div>
