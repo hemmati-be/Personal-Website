@@ -14,16 +14,16 @@
 
         :root {
             /* Violet theme palette */
-            --primary: #d83aed;           /* rich violet */
-            --primary-light: #a78bfa;      /* soft lavender */
-            --primary-dark: #9321b6;       /* deep violet */
-            --primary-soft: #ede9fe;       /* very light violet */
-            --accent: #c084fc;             /* light purple accent */
-            --bg-soft: #f5f3ff;            /* near-white violet */
+            --primary: #7c3aed;
+            --primary-light: #a78bfa;
+            --primary-dark: #5b21b6;
+            --primary-soft: #ede9fe;
+            --accent: #c084fc;
+            --bg-soft: #f5f3ff;
             --card-bg: #ffffff;
-            --text-main: #3d1a47;          /* dark violet-ink */
-            --text-soft: #5b4a7a;          /* muted violet-gray */
-            --border-light: #ddd6fe;       /* light violet border */
+            --text-main: #2e1a47;
+            --text-soft: #5b4a7a;
+            --border-light: #ddd6fe;
             --shadow-sm: 0 4px 12px rgba(91, 33, 182, 0.06);
             --shadow-md: 0 12px 28px -8px rgba(91, 33, 182, 0.18);
             --shadow-lg: 0 30px 60px -15px rgba(91, 33, 182, 0.25);
@@ -958,7 +958,7 @@
 
         <!-- Main grid -->
         <div class="main-grid">
-            <!-- LEFT COLUMN -->
+            <!-- LEFT COLUMN: Profile Summary, Research Interests, Experience, Research -->
             <div class="left-col">
                 <!-- Profile Summary -->
                 <div class="section reveal">
@@ -982,6 +982,68 @@
                     </div>
                 </div>
 
+                <!-- Experience -->
+                <div class="section reveal reveal-delay-2">
+                    <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Cybersecurity Specialist</span>
+                            <span class="exp-date">Jun 2024 – Aug 2025</span>
+                        </div>
+                        <div class="exp-org">APA Cybersecurity Lab · Tehran, Iran</div>
+                        <ul class="exp-desc">
+                            <li>Conducted vulnerability assessments and penetration testing to identify security weaknesses and support system resilience.</li>
+                            <li>Performed incident response and security analysis for cybersecurity incidents.</li>
+                            <li>Collaborated with cross-functional teams on security architecture and mitigation strategies.</li>
+                            <li>Applied practical threat modeling and security assessment techniques to real-world systems.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Research -->
+                <div class="section reveal reveal-delay-3">
+                    <div class="section-title"><i class="fas fa-scroll"></i> Research</div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">Enhancing Windows Threat Detection by Mapping Sysmon Telemetry Data to MITRE ATT&CK Techniques Using Natural Language Processing</span>
+                            <span class="exp-date">Jul 2026</span>
+                        </div>
+                        <div class="pub-meta"><i class="fas fa-building"></i> 2nd Conference on Data Governance and AI - University of Tehran</div>
+                        <div style="margin-top: 8px;">
+                            <span class="chip first-author">First Author</span>
+                            <span class="chip">Accepted</span>
+                        </div>
+                        <ul class="exp-desc" style="margin-top: 8px;">
+                            <li>Developed an NLP-based approach for mapping low-level Sysmon security telemetry to higher-level MITRE ATT&CK techniques.</li>
+                            <li>Designed a data-processing and model-evaluation pipeline for transforming heterogeneous security telemetry into a machine-learning classification task.</li>
+                        </ul>
+                    </div>
+
+                    <div class="exp-item">
+                        <div class="exp-header">
+                            <span class="exp-title">From Telemetry to Techniques: Behavior-Centric MITRE ATT&CK Technique Classification Through Sysmon Event Correlation</span>
+                            <span class="exp-date">Sep 2026</span>
+                        </div>
+                        <div class="pub-meta"><i class="fas fa-book"></i> Journal of Computer Virology and Hacking Techniques</div>
+                        <div class="pub-meta" style="font-style: normal; margin-top: 2px;">
+                            <i class="fas fa-link"></i> <a href="https://doi.org/10.21203/rs.3.rs-10331677/v1" class="pub-link" target="_blank">https://doi.org/10.21203/rs.3.rs-10331677/v1</a>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="chip first-author">First Author</span>
+                            <span class="chip">Under Peer Review</span>
+                        </div>
+                        <ul class="exp-desc" style="margin-top: 8px;">
+                            <li>Designed an empirical framework comparing event-correlation strategies, learning paradigms, and class-imbalance approaches for adversarial behavior classification.</li>
+                            <li>Evaluated traditional machine-learning and cybersecurity-specific Transformer models on correlated security telemetry.</li>
+                            <li>Investigated how behavioral context influences the robustness and effectiveness of automated security classification.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Education, Technical Skills -->
+            <div class="right-col">
                 <!-- Education -->
                 <div class="section reveal reveal-delay-2">
                     <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
@@ -1052,68 +1114,6 @@
                             <span class="skill-tag">Autopsy</span>
                             <span class="skill-tag">Nessus</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT COLUMN -->
-            <div class="right-col">
-                <!-- Experience -->
-                <div class="section reveal reveal-delay-2">
-                    <div class="section-title"><i class="fas fa-briefcase"></i> Experience</div>
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-title">Cybersecurity Specialist</span>
-                            <span class="exp-date">Jun 2024 – Aug 2025</span>
-                        </div>
-                        <div class="exp-org">APA Cybersecurity Lab · Tehran, Iran</div>
-                        <ul class="exp-desc">
-                            <li>Conducted vulnerability assessments and penetration testing to identify security weaknesses and support system resilience.</li>
-                            <li>Performed incident response and security analysis for cybersecurity incidents.</li>
-                            <li>Collaborated with cross-functional teams on security architecture and mitigation strategies.</li>
-                            <li>Applied practical threat modeling and security assessment techniques to real-world systems.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Research -->
-                <div class="section reveal reveal-delay-3">
-                    <div class="section-title"><i class="fas fa-scroll"></i> Research</div>
-
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-title">Enhancing Windows Threat Detection by Mapping Sysmon Telemetry Data to MITRE ATT&CK Techniques Using Natural Language Processing</span>
-                            <span class="exp-date">Jul 2026</span>
-                        </div>
-                        <div class="pub-meta"><i class="fas fa-building"></i> 2nd Conference on Data Governance and AI - University of Tehran</div>
-                        <div style="margin-top: 8px;">
-                            <span class="chip first-author">First Author</span>
-                            <span class="chip">Accepted</span>
-                        </div>
-                        <ul class="exp-desc" style="margin-top: 8px;">
-                            <li>Developed an NLP-based approach for mapping low-level Sysmon security telemetry to higher-level MITRE ATT&CK techniques.</li>
-                            <li>Designed a data-processing and model-evaluation pipeline for transforming heterogeneous security telemetry into a machine-learning classification task.</li>
-                        </ul>
-                    </div>
-
-                    <div class="exp-item">
-                        <div class="exp-header">
-                            <span class="exp-title">From Telemetry to Techniques: Behavior-Centric MITRE ATT&CK Technique Classification Through Sysmon Event Correlation</span>
-                            <span class="exp-date">Sep 2026</span>
-                        </div>
-                        <div class="pub-meta"><i class="fas fa-book"></i> Journal of Computer Virology and Hacking Techniques</div>
-                        <div class="pub-meta" style="font-style: normal; margin-top: 2px;">
-                            <i class="fas fa-link"></i> <a href="https://doi.org/10.21203/rs.3.rs-10331677/v1" class="pub-link" target="_blank">https://doi.org/10.21203/rs.3.rs-10331677/v1</a>
-                        </div>
-                        <div style="margin-top: 8px;">
-                            <span class="chip first-author">First Author</span>
-                            <span class="chip">Under Peer Review</span>
-                        </div>
-                        <ul class="exp-desc" style="margin-top: 8px;">
-                            <li>Designed an empirical framework comparing event-correlation strategies, learning paradigms, and class-imbalance approaches for adversarial behavior classification.</li>
-                            <li>Evaluated traditional machine-learning and cybersecurity-specific Transformer models on correlated security telemetry.</li>
-                            <li>Investigated how behavioral context influences the robustness and effectiveness of automated security classification.</li>
-                        </ul>
                     </div>
                 </div>
             </div>
