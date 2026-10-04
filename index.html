@@ -820,6 +820,106 @@
             color: var(--primary-dark);
         }
 
+        /* ===== Scroll to Top Button ===== */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px -6px rgba(124, 58, 237, 0.55);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(30px) scale(0.7) rotate(-90deg);
+            transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+                        box-shadow 0.3s ease,
+                        background 0.3s ease;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        
+        /* Show state */
+        .scroll-top-btn.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0) scale(1) rotate(0deg);
+        }
+        
+        /* Hover state */
+        .scroll-top-btn:hover {
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            box-shadow: 0 12px 32px -6px rgba(124, 58, 237, 0.75);
+            transform: translateY(-4px) scale(1.1);
+        }
+        
+        /* Icon animation on hover */
+        .scroll-top-btn i {
+            transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        
+        .scroll-top-btn:hover i {
+            transform: translateY(-3px);
+        }
+        
+        /* Ripple/pulse effect on click */
+        .scroll-top-btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.35);
+            transform: scale(0);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+        
+        .scroll-top-btn:active::before {
+            transform: scale(2);
+            opacity: 1;
+            transition: 0s;
+        }
+        
+        /* Progress ring (optional, animates with scroll) */
+        .scroll-top-btn::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--accent) calc(var(--scroll-progress, 0) * 1%),
+                transparent 0
+            );
+            z-index: -1;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .scroll-top-btn:hover::after {
+            opacity: 1;
+        }
+        
+        /* Mobile adjustment */
+        @media (max-width: 640px) {
+            .scroll-top-btn {
+                bottom: 1.2rem;
+                right: 1.2rem;
+                width: 46px;
+                height: 46px;
+                font-size: 1rem;
+            }
+        }
+
         /* Scroll reveal */
         .reveal {
             opacity: 0;
@@ -1118,6 +1218,11 @@
         </div>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button class="scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top" title="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <script>
         (function() {
             const revealElements = document.querySelectorAll('.reveal');
@@ -1144,6 +1249,50 @@
                 });
             });
         })();
+
+        // ===== Scroll to Top Button =====
+const scrollBtn = document.getElementById('scrollTopBtn');
+
+if (scrollBtn) {
+    const toggleScrollBtn = () => {
+        const scrolled = window.scrollY || document.documentElement.scrollTop;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? (scrolled / docHeight) * 100 : 0;
+
+        // Show/hide based on scroll position
+        if (scrolled > 300) {
+            scrollBtn.classList.add('show');
+        } else {
+            scrollBtn.classList.remove('show');
+        }
+
+        // Update conic-gradient progress ring
+        scrollBtn.style.setProperty('--scroll-progress', progress);
+    };
+
+        // Throttle for performance
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    toggleScrollBtn();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+    
+        // Initial check (in case page loads scrolled)
+        toggleScrollBtn();
+    
+        // Smooth scroll to top on click
+        scrollBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     </script>
 </body>
 </html>
